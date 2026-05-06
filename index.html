@@ -2,39 +2,85 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Космический захватчик</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#070817" />
+  <meta name="description" content="Космический захватчик — неоновая браузерная аркада на HTML, CSS и JavaScript." />
+  <title>Космический захватчик — браузерная аркада</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="wrap">
-    <section class="hero">
-      <div>
-        <p class="eyebrow">mini arcade / web game</p>
-        <h1>Космический<br />захватчик</h1>
-        <p class="lead">Защити орбитальную станцию от волн дронов. Управляй кораблём, стреляй точно и не дай врагам пройти линию обороны.</p>
+  <div class="aurora aurora-a"></div>
+  <div class="aurora aurora-b"></div>
+
+  <main class="app-shell">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> orbital defense arcade</p>
+        <h1 id="page-title">Космический<br><em>захватчик</em></h1>
+        <p class="lead">Неоновая мини-аркада: отбивай волны дронов, держи комбо и не дай им прорваться к станции.</p>
+        <div class="hero-actions">
+          <a class="ghost-link" href="#game-section">Играть сейчас</a>
+          <span class="hint">Работает на ПК и телефоне</span>
+        </div>
       </div>
-      <div class="panel">
-        <div class="stat"><span>Очки</span><strong id="score">0</strong></div>
+
+      <aside class="scoreboard" aria-label="Игровая статистика">
+        <div class="stat stat-score"><span>Очки</span><strong id="score">0</strong></div>
+        <div class="stat"><span>Рекорд</span><strong id="best">0</strong></div>
         <div class="stat"><span>Жизни</span><strong id="lives">3</strong></div>
         <div class="stat"><span>Волна</span><strong id="wave">1</strong></div>
-      </div>
+      </aside>
     </section>
 
-    <section class="game-card">
-      <canvas id="game" width="900" height="560" aria-label="Игровое поле"></canvas>
-      <div id="overlay" class="overlay">
-        <h2>Готов к запуску?</h2>
-        <p>← → или A/D — движение · Space — выстрел · P — пауза</p>
-        <button id="startBtn">Начать игру</button>
+    <section id="game-section" class="game-layout">
+      <div class="game-card">
+        <div class="game-topbar">
+          <div>
+            <span class="live-dot"></span>
+            <strong id="statusText">Станция в режиме ожидания</strong>
+          </div>
+          <div class="combo" id="comboText">COMBO ×1</div>
+        </div>
+
+        <canvas id="game" width="960" height="600" aria-label="Игровое поле Космического захватчика"></canvas>
+
+        <div id="overlay" class="overlay">
+          <div class="modal">
+            <p class="modal-kicker">mission briefing</p>
+            <h2>Защити орбиту</h2>
+            <p>Дроны наступают волнами. Чем точнее играешь — тем выше комбо и больше очков.</p>
+            <div class="keys">
+              <span>← → / A D</span>
+              <span>Space</span>
+              <span>P</span>
+            </div>
+            <button id="startBtn" class="primary-btn">Начать миссию</button>
+          </div>
+        </div>
       </div>
+
+      <aside class="briefing">
+        <h2>Управление</h2>
+        <ul>
+          <li><b>← →</b> или <b>A/D</b> — движение корабля</li>
+          <li><b>Space</b> — плазменный выстрел</li>
+          <li><b>P</b> — пауза</li>
+        </ul>
+        <div class="tip-card">
+          <span>Совет</span>
+          Стреляй короткими сериями: за быстрые попадания растёт комбо.
+        </div>
+      </aside>
     </section>
 
-    <section class="controls">
-      <button id="leftBtn">←</button>
-      <button id="fireBtn">Огонь</button>
-      <button id="rightBtn">→</button>
-      <button id="pauseBtn">Пауза</button>
+    <section class="controls" aria-label="Сенсорное управление">
+      <button id="leftBtn" aria-label="Влево">←</button>
+      <button id="fireBtn" class="fire" aria-label="Огонь">Огонь</button>
+      <button id="rightBtn" aria-label="Вправо">→</button>
+      <button id="pauseBtn" aria-label="Пауза">Пауза</button>
     </section>
   </main>
 
