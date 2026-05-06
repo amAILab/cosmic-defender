@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Космический захватчик</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">mini arcade / web game</p>
+        <h1>Космический<br />захватчик</h1>
+        <p class="lead">Защити орбитальную станцию от волн дронов. Управляй кораблём, стреляй точно и не дай врагам пройти линию обороны.</p>
+      </div>
+      <div class="panel">
+        <div class="stat"><span>Очки</span><strong id="score">0</strong></div>
+        <div class="stat"><span>Жизни</span><strong id="lives">3</strong></div>
+        <div class="stat"><span>Волна</span><strong id="wave">1</strong></div>
+      </div>
+    </section>
+
+    <section class="game-card">
+      <canvas id="game" width="900" height="560" aria-label="Игровое поле"></canvas>
+      <div id="overlay" class="overlay">
+        <h2>Готов к запуску?</h2>
+        <p>← → или A/D — движение · Space — выстрел · P — пауза</p>
+        <button id="startBtn">Начать игру</button>
+      </div>
+    </section>
+
+    <section class="controls">
+      <button id="leftBtn">←</button>
+      <button id="fireBtn">Огонь</button>
+      <button id="rightBtn">→</button>
+      <button id="pauseBtn">Пауза</button>
+    </section>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
